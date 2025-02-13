@@ -14,9 +14,17 @@ export class OpenAIService {
     apiKey: this.apiKey,
   });
 
+  createMessage(messages: ChatCompletionMessageParam[]) {
+    return messages;
+  }
+
+  createJsonSchema(schema: ResponseFormatJSONSchema.JSONSchema) {
+    return schema;
+  }
+
   async createCompletionWithJsonSchmea(
     messages: ChatCompletionMessageParam[],
-    json_schema: ResponseFormatJSONSchema & { name: string },
+    json_schema: ResponseFormatJSONSchema.JSONSchema,
   ) {
     return await this.client.chat.completions.create({
       model: this.model,
@@ -24,19 +32,6 @@ export class OpenAIService {
       response_format: {
         type: 'json_schema',
         json_schema: json_schema,
-        // json_schema: {
-        //   name: 'chat_response',
-        //   description: 'A chat response',
-        //   strict: true,
-        //   schema: {
-        //     type: 'object',
-        //     properties: {
-        //       message: {
-        //         type: 'string',
-        //       },
-        //     },
-        //   },
-        // },
       },
     });
   }
