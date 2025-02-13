@@ -19,7 +19,7 @@ export class MultiplicationsRequestBuilder {
       {
         role: 'user',
         content: `
-        Devuelve ${quantity} operaciones de resta las cuales deben de cumplir con todos y cada uno de los siguientes criterios:
+        Devuelve ${quantity} operaciones de multiplicaciones las cuales deben de cumplir con todos y cada uno de los siguientes criterios:
         * Todos los numeros deben ser numeros enteros positivos.
         * El multiplicando debe de tener ${generateAdditionsDto.multiplicandDitis} digitos.
         * El multiplicador debe de tener ${generateAdditionsDto.multiplierDigits} digitos.

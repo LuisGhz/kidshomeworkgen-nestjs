@@ -7,6 +7,9 @@ import { GenerateSubstractionsDto } from '../dtos/generate-substractions.dto';
 import { SubstractionsRequestBuilder } from '../utils/builders/substractions-request-builder.util';
 import { GenerateMultiplicationsDto } from '../dtos/generate-multiplications.dto';
 import { MultiplicationsRequestBuilder } from '../utils/builders/multiplications-request.builder.util';
+import { GenerateDivisionsDto } from '../dtos/generate-divisions.dto';
+import { DivitionsRequestBuilder } from '../utils/builders/divisions-request-builder.util';
+import { DivisionsResponse } from '../models/divisions-response.model';
 
 @Injectable()
 export class BasicMathsService {
@@ -62,5 +65,21 @@ export class BasicMathsService {
     ) as AdditionsResponse;
 
     return additions;
+  }
+
+  async divisions(generateDivitionsDto: GenerateDivisionsDto) {
+    const messages =
+      DivitionsRequestBuilder.buildMessages(generateDivitionsDto);
+    const schema = DivitionsRequestBuilder.buildSchema();
+
+    const response = await this.openAiService.createCompletionWithJsonSchmea(
+      messages,
+      schema,
+    );
+    const divisions = JSON.parse(
+      response.choices[0].message.content!,
+    ) as DivisionsResponse;
+
+    return divisions;
   }
 }
