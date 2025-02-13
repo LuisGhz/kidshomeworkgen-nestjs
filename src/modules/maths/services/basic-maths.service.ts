@@ -10,6 +10,8 @@ import { MultiplicationsRequestBuilder } from '../utils/builders/multiplications
 import { GenerateDivisionsDto } from '../dtos/generate-divisions.dto';
 import { DivitionsRequestBuilder } from '../utils/builders/divisions-request-builder.util';
 import { DivisionsResponse } from '../models/divisions-response.model';
+import { SubstractionsResponse } from '../models/susbtracions-response.model';
+import { MultiplicationsResponse } from '../models/multiplications-response.model';
 
 @Injectable()
 export class BasicMathsService {
@@ -43,7 +45,7 @@ export class BasicMathsService {
     );
     const additions = JSON.parse(
       response.choices[0].message.content!,
-    ) as AdditionsResponse;
+    ) as SubstractionsResponse;
 
     return additions;
   }
@@ -54,7 +56,7 @@ export class BasicMathsService {
     const messages = MultiplicationsRequestBuilder.buildMessages(
       generateMultiplicationsDto,
     );
-    const schema = SubstractionsRequestBuilder.buildSchema();
+    const schema = MultiplicationsRequestBuilder.buildSchema();
 
     const response = await this.openAiService.createCompletionWithJsonSchmea(
       messages,
@@ -62,7 +64,7 @@ export class BasicMathsService {
     );
     const additions = JSON.parse(
       response.choices[0].message.content!,
-    ) as AdditionsResponse;
+    ) as MultiplicationsResponse;
 
     return additions;
   }
