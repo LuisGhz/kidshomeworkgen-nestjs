@@ -3,6 +3,8 @@ import { IsNotEmpty } from 'class-validator';
 
 export class GenerateAdditionsDto {
   @IsNotEmpty()
+  pages: number;
+  @IsNotEmpty()
   firstAddendDigits: number;
   @IsNotEmpty()
   secondAddendDigits: number;

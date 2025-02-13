@@ -6,11 +6,11 @@ import { GenerateAdditionsDto } from '../../dtos/generate-additions.dto';
 import { Logger } from '@nestjs/common';
 
 export class AdditionsRequestBuilder {
-  private readonly logger = new Logger(AdditionsRequestBuilder.name);
-
   static buildMessages(
     generateAdditionsDto: GenerateAdditionsDto,
   ): ChatCompletionMessageParam[] {
+    const quantityPerPage = 10;
+    const quantity = generateAdditionsDto.pages * quantityPerPage;
     const messages: ChatCompletionMessageParam[] = [
       {
         role: 'system',
@@ -19,7 +19,7 @@ export class AdditionsRequestBuilder {
       {
         role: 'user',
         content: `
-        Devuelve 10 operaciones de suma las cuales deben de cumplir con todos y cada uno de los siguientes criterios:
+        Devuelve ${quantity} operaciones de suma las cuales deben de cumplir con todos y cada uno de los siguientes criterios:
         * Las operaciones deben de ser de dos sumandos.
         * Los sumandos deben ser numeros enteros positivos.
         * Los sumandos no deben ser 0.
