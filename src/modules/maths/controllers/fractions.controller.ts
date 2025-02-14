@@ -1,6 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { GenerateFrAdditionsDto } from '../dtos/fractions/generate-fr-additions.dto';
 import { FractionsService } from '../services/fractions.service';
+import { GenerateFrSubstractionsDto } from '../dtos/fractions/generate-fr-substractions.dto';
 
 @Controller('api/fractions')
 export class FractionsController {
@@ -9,5 +10,12 @@ export class FractionsController {
   @Get('additions')
   getAdditions(@Query() generateFrAdditionsDto: GenerateFrAdditionsDto) {
     return this.fractionsService.additions(generateFrAdditionsDto);
+  }
+
+  @Get('substractions')
+  getSubstractions(
+    @Query() generateFrSubstractionsDto: GenerateFrSubstractionsDto,
+  ) {
+    return this.fractionsService.substractions(generateFrSubstractionsDto);
   }
 }

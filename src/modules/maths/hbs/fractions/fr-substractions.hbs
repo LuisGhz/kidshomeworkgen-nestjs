@@ -1,0 +1,83 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Additions</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 62.5%;
+      }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15rem 13rem;
+        margin-top: 1rem;
+        margin-left: 2rem;
+      }
+      p {
+        font-size: 2rem;
+        text-align: center;
+        margin: 0;
+        letter-spacing: 0.4rem;
+      }
+      .substraction {
+        display: flex;
+        gap: 0 1rem;
+        width: 12rem;
+      }
+      .flex {
+        display: flex;
+      }
+      .col {
+        flex-direction: column;
+      }
+      .divider {
+        width: 100%;
+        border-top: 1px solid black;
+      }
+      .v-center {
+        display: flex;
+        align-items: center;
+      }
+      .minus-sign {
+        width: 1rem;
+        border-top: 0.1rem solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      {{#each substractions}}
+        <article class='substraction'>
+          <div class='flex'>
+            {{#if this.firstWhole}}
+              <p class='v-center'>{{this.firstWhole}}</p>
+            {{/if}}
+            <div class='flex col'>
+              <p>{{this.firstNumerator}}</p>
+              <div class='divider'></div>
+              <p>{{this.firstDenominator}}</p>
+            </div>
+          </div>
+          <div class='v-center'>
+            <div class='minus-sign'></div>
+          </div>
+          <div class='flex'>
+            {{#if this.secondWhole}}
+              <p class='v-center'>{{this.secondWhole}}</p>
+            {{/if}}
+            <div class='flex col'>
+              <p>{{this.secondNumerator}}</p>
+              <div class='divider'></div>
+              <p>{{this.secondDenominator}}</p>
+            </div>
+          </div>
+          <p class='v-center'>=</p>
+        </article>
+      {{/each}}
+    </main>
+  </body>
+</html>
