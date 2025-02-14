@@ -1,0 +1,45 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Additions</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 62.5%;
+      }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15rem 6rem;
+        margin-left: 4rem;
+      }
+      p {
+        font-size: 2rem;
+        text-align: right;
+        margin: 0;
+        letter-spacing: 0.3rem;
+      }
+      .multiplication {
+        display: flex;
+        flex-direction: column;
+        width: 12rem;
+      }
+      .multiplier {
+        border-bottom: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      {{#each multiplications}}
+        <div class='multiplication'>
+          <p>{{this.multiplicand}} &#215;</p>
+          <p class='multiplier'>{{this.multiplier}} =</p>
+        </div>
+      {{/each}}
+    </main>
+  </body>
+</html>

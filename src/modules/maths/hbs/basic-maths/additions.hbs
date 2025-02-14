@@ -1,0 +1,44 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Additions</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 62.5%;
+      }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12rem 3rem;
+      }
+      p {
+        font-size: 2rem;
+        text-align: right;
+        margin: 0;
+        letter-spacing: 0.2rem;
+      }
+      .addition {
+        display: flex;
+        flex-direction: column;
+        width: 12rem;
+      }
+      .secondAddend {
+        border-bottom: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      {{#each additions}}
+        <div class='addition'>
+          <p>{{this.firstAddend}} +</p>
+          <p class='secondAddend'>{{this.secondAddend}} =</p>
+        </div>
+      {{/each}}
+    </main>
+  </body>
+</html>

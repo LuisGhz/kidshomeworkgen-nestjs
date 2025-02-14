@@ -1,0 +1,49 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Additions</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 62.5%;
+      }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15rem 6rem;
+        margin-top: 1rem;
+        margin-left: 2rem;
+      }
+      p {
+        font-size: 2rem;
+        text-align: right;
+        margin: 0;
+        letter-spacing: 0.4rem;
+      }
+      .division {
+        display: flex;
+        width: 12rem;
+      }
+      .dividend {
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        margin-left: 0.2rem;
+        padding-left: 0.3rem;
+        padding-right: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      {{#each divisions}}
+        <div class='division'>
+          <p>{{this.divisor}}</p>
+          <p class='dividend'>{{this.dividend}}</p>
+        </div>
+      {{/each}}
+    </main>
+  </body>
+</html>

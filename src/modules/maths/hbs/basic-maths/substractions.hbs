@@ -1,0 +1,48 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Additions</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 62.5%;
+      }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 11rem 3rem;
+      }
+      p {
+        font-size: 2rem;
+        text-align: right;
+        margin: 0;
+        letter-spacing: 0.2rem;
+      }
+      .substraction {
+        display: flex;
+        flex-direction: column;
+        width: 12rem;
+      }
+      .subtrahend {
+        border-bottom: 1px solid black;
+      }
+
+      .minus-sign {
+        font-size: 3.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      {{#each substractions}}
+        <div class='substraction'>
+          <p>{{this.minuend}} <span class='minus-sign'>-</span></p>
+          <p class='subtrahend'>{{this.subtrahend}} =</p>
+        </div>
+      {{/each}}
+    </main>
+  </body>
+</html>
