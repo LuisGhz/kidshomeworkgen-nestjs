@@ -3,7 +3,7 @@ import {
   ResponseFormatJSONSchema,
 } from 'openai/resources';
 import { Logger } from '@nestjs/common';
-import { GenerateDivisionsDto } from '../../dtos/generate-divisions.dto';
+import { GenerateDivisionsDto } from '../../dtos/basic-maths/generate-divisions.dto';
 
 export class DivitionsRequestBuilder {
   static buildMessages(

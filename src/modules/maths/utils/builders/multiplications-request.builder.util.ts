@@ -3,7 +3,7 @@ import {
   ResponseFormatJSONSchema,
 } from 'openai/resources';
 import { Logger } from '@nestjs/common';
-import { GenerateMultiplicationsDto } from '../../dtos/generate-multiplications.dto';
+import { GenerateMultiplicationsDto } from '../../dtos/basic-maths/generate-multiplications.dto';
 
 export class MultiplicationsRequestBuilder {
   static buildMessages(

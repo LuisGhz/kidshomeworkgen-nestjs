@@ -2,7 +2,7 @@ import {
   ChatCompletionMessageParam,
   ResponseFormatJSONSchema,
 } from 'openai/resources';
-import { GenerateAdditionsDto } from '../../dtos/generate-additions.dto';
+import { GenerateAdditionsDto } from '../../dtos/basic-maths/generate-additions.dto';
 import { Logger } from '@nestjs/common';
 
 export class AdditionsRequestBuilder {

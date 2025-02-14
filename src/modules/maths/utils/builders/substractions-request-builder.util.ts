@@ -3,7 +3,7 @@ import {
   ResponseFormatJSONSchema,
 } from 'openai/resources';
 import { Logger } from '@nestjs/common';
-import { GenerateSubstractionsDto } from '../../dtos/generate-substractions.dto';
+import { GenerateSubstractionsDto } from '../../dtos/basic-maths/generate-substractions.dto';
 
 export class SubstractionsRequestBuilder {
   static buildMessages(

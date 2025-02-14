@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { OpenAIService } from 'src/modules/openai/services/openai.service';
-import { AdditionsResponse } from '../models/additions-response.model';
+import { AdditionsResponse } from '../models/basic-maths/additions-response.model';
 import { AdditionsRequestBuilder } from '../utils/builders/additions-request-builder.util';
-import { GenerateAdditionsDto } from '../dtos/generate-additions.dto';
-import { GenerateSubstractionsDto } from '../dtos/generate-substractions.dto';
+import { GenerateAdditionsDto } from '../dtos/basic-maths/generate-additions.dto';
+import { GenerateSubstractionsDto } from '../dtos/basic-maths/generate-substractions.dto';
 import { SubstractionsRequestBuilder } from '../utils/builders/substractions-request-builder.util';
-import { GenerateMultiplicationsDto } from '../dtos/generate-multiplications.dto';
+import { GenerateMultiplicationsDto } from '../dtos/basic-maths/generate-multiplications.dto';
 import { MultiplicationsRequestBuilder } from '../utils/builders/multiplications-request.builder.util';
-import { GenerateDivisionsDto } from '../dtos/generate-divisions.dto';
+import { GenerateDivisionsDto } from '../dtos/basic-maths/generate-divisions.dto';
 import { DivitionsRequestBuilder } from '../utils/builders/divisions-request-builder.util';
-import { DivisionsResponse } from '../models/divisions-response.model';
-import { SubstractionsResponse } from '../models/susbtracions-response.model';
-import { MultiplicationsResponse } from '../models/multiplications-response.model';
+import { DivisionsResponse } from '../models/basic-maths/divisions-response.model';
+import { SubstractionsResponse } from '../models/basic-maths/susbtracions-response.model';
+import { MultiplicationsResponse } from '../models/basic-maths/multiplications-response.model';
 
 @Injectable()
 export class BasicMathsService {
