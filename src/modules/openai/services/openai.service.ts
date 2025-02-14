@@ -22,7 +22,7 @@ export class OpenAIService {
     return schema;
   }
 
-  async createCompletionWithJsonSchmea(
+  async createCompletionWithJsonSchema(
     messages: ChatCompletionMessageParam[],
     json_schema: ResponseFormatJSONSchema.JSONSchema,
   ) {

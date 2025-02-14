@@ -22,7 +22,7 @@ export class BasicMathsService {
       AdditionsRequestBuilder.buildMessages(generateAdditionsDto);
     const schema = AdditionsRequestBuilder.buildSchema();
 
-    const response = await this.openAiService.createCompletionWithJsonSchmea(
+    const response = await this.openAiService.createCompletionWithJsonSchema(
       messages,
       schema,
     );
@@ -39,7 +39,7 @@ export class BasicMathsService {
     );
     const schema = SubstractionsRequestBuilder.buildSchema();
 
-    const response = await this.openAiService.createCompletionWithJsonSchmea(
+    const response = await this.openAiService.createCompletionWithJsonSchema(
       messages,
       schema,
     );
@@ -58,7 +58,7 @@ export class BasicMathsService {
     );
     const schema = MultiplicationsRequestBuilder.buildSchema();
 
-    const response = await this.openAiService.createCompletionWithJsonSchmea(
+    const response = await this.openAiService.createCompletionWithJsonSchema(
       messages,
       schema,
     );
@@ -74,7 +74,7 @@ export class BasicMathsService {
       DivitionsRequestBuilder.buildMessages(generateDivitionsDto);
     const schema = DivitionsRequestBuilder.buildSchema();
 
-    const response = await this.openAiService.createCompletionWithJsonSchmea(
+    const response = await this.openAiService.createCompletionWithJsonSchema(
       messages,
       schema,
     );
