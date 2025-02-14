@@ -26,7 +26,7 @@ export class BasicMathsController {
     const response =
       await this.basicMathsService.additions(generateAdditionsDto);
     const pdf = await this.pdfService.generatePdf(response, templatePath);
-    resPdf(res, pdf);
+    resPdf({ res, pdf, fileName: 'Additions' });
   }
 
   @Get('substractions')
@@ -39,7 +39,7 @@ export class BasicMathsController {
       generateSubstractionsDto,
     );
     const pdf = await this.pdfService.generatePdf(response, templatePath);
-    resPdf(res, pdf);
+    resPdf({ res, pdf, fileName: 'Substractions' });
   }
 
   @Get('multiplications')
@@ -52,7 +52,7 @@ export class BasicMathsController {
       generateMultiplicationsDto,
     );
     const pdf = await this.pdfService.generatePdf(response, templatePath);
-    resPdf(res, pdf);
+    resPdf({ res, pdf, fileName: 'Multiplications' });
   }
 
   @Get('divisions')
@@ -64,7 +64,7 @@ export class BasicMathsController {
     const response =
       await this.basicMathsService.divisions(generateDivitionsDto);
     const pdf = await this.pdfService.generatePdf(response, templatePath);
-    resPdf(res, pdf);
+    resPdf({ res, pdf, fileName: 'Divisions' });
   }
 
   @Get('test-template')

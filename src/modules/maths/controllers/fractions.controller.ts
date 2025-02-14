@@ -24,7 +24,7 @@ export class FractionsController {
       generateFrAdditionsDto,
     );
     const pdf = await this.pdfService.generatePdf(response, templatePath);
-    resPdf(res, pdf);
+    resPdf({ res, pdf, fileName: 'Fr-additions' });
   }
 
   @Get('substractions')
@@ -37,7 +37,7 @@ export class FractionsController {
       generateFrSubstractionsDto,
     );
     const pdf = await this.pdfService.generatePdf(response, templatePath);
-    resPdf(res, pdf);
+    resPdf({ res, pdf, fileName: 'Fr-substractions' });
   }
 
   @Get('multiplications')
@@ -50,6 +50,6 @@ export class FractionsController {
       generateFrSubstractionsDto,
     );
     const pdf = await this.pdfService.generatePdf(response, templatePath);
-    resPdf(res, pdf);
+    resPdf({ res, pdf, fileName: 'Fr-multiplications' });
   }
 }
