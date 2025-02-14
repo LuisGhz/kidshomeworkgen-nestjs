@@ -9,7 +9,7 @@ export class SubstractionsRequestBuilder {
   static buildMessages(
     generateAdditionsDto: GenerateSubstractionsDto,
   ): ChatCompletionMessageParam[] {
-    const quantityPerPage = 10;
+    const quantityPerPage = 30;
     const quantity = generateAdditionsDto.pages * quantityPerPage;
     const messages: ChatCompletionMessageParam[] = [
       {

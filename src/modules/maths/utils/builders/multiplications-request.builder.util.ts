@@ -9,7 +9,7 @@ export class MultiplicationsRequestBuilder {
   static buildMessages(
     generateAdditionsDto: GenerateMultiplicationsDto,
   ): ChatCompletionMessageParam[] {
-    const quantityPerPage = 10;
+    const quantityPerPage = 20;
     const quantity = generateAdditionsDto.pages * quantityPerPage;
     const messages: ChatCompletionMessageParam[] = [
       {

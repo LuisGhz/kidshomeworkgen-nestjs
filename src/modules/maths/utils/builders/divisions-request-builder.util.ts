@@ -9,7 +9,7 @@ export class DivitionsRequestBuilder {
   static buildMessages(
     generateDivisionsDto: GenerateDivisionsDto,
   ): ChatCompletionMessageParam[] {
-    const quantityPerPage = 10;
+    const quantityPerPage = 20;
     const quantity = generateDivisionsDto.pages * quantityPerPage;
     const messages: ChatCompletionMessageParam[] = [
       {
