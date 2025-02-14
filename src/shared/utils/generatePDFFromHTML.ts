@@ -3,6 +3,7 @@ import * as puppeteer from 'puppeteer';
 export const generatePDFFromHTML = async (template: string) => {
   // eslint-disable-next-line no-useless-catch
   try {
+    const margin = '20px';
     const browser = await puppeteer.launch({
       headless: true,
       ignoreDefaultArgs: ['--disable-extensions'],
@@ -28,10 +29,10 @@ export const generatePDFFromHTML = async (template: string) => {
     const pdf = await page.pdf({
       format: 'LETTER',
       margin: {
-        top: '20px',
-        bottom: '20px',
-        left: '20px',
-        right: '20px',
+        top: margin,
+        bottom: margin,
+        left: margin,
+        right: margin,
       },
       preferCSSPageSize: true,
     });
