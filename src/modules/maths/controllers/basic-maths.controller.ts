@@ -6,8 +6,8 @@ import { GenerateAdditionsDto } from '../dtos/basic-maths/generate-additions.dto
 import { GenerateSubstractionsDto } from '../dtos/basic-maths/generate-substractions.dto';
 import { GenerateMultiplicationsDto } from '../dtos/basic-maths/generate-multiplications.dto';
 import { GenerateDivisionsDto } from '../dtos/basic-maths/generate-divisions.dto';
-import { compileTemplateToHtml } from 'src/shared/utils/compileTemplateToHtml';
-import { generatePDFFromHTML } from 'src/shared/utils/generatePDFFromHTML';
+import { compileTemplateToHtml } from 'src/modules/shared/utils/compileTemplateToHtml';
+import { generatePDFFromHTML } from 'src/modules/shared/utils/generatePDFFromHTML';
 import { resPdf } from 'src/modules/shared/utils/resPdf.util';
 
 @Controller('api/basic-maths')

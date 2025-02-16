@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { compileTemplateToHtml } from 'src/shared/utils/compileTemplateToHtml';
-import { generatePDFFromHTML } from 'src/shared/utils/generatePDFFromHTML';
+import { compileTemplateToHtml } from 'src/modules/shared/utils/compileTemplateToHtml';
+import { generatePDFFromHTML } from 'src/modules/shared/utils/generatePDFFromHTML';
 
 @Injectable()
 export class PdfService {
