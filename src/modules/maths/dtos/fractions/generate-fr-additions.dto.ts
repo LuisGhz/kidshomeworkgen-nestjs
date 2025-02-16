@@ -1,11 +1,12 @@
 import { Transform } from 'class-transformer';
-import { IsBoolean, IsIn, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsBoolean, IsIn, IsInt, IsNotEmpty, Min } from 'class-validator';
 
 export class GenerateFrAdditionsDto {
   @IsNotEmpty()
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   @Transform(({ value }) => parseInt(value))
-  @IsNumber()
+  @IsInt()
+  @Min(1)
   pages: number;
   @IsNotEmpty()
   @Transform(({ value }) => value === 'true')
