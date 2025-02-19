@@ -1,5 +1,5 @@
 #!/bin/bash
-# filepath: /c:/Users/Luisghtz/dev/nestjs/kidshomeworkgen/scripts/deploy.sh
+source ~/.bashrc
 
 if [ -z "$DOCKERHUB_USER" ]; then
     echo "Error: DOCKERHUB_USER environment variable is not set: $DOCKERHUB_USER"
