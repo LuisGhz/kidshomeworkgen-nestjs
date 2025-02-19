@@ -11,7 +11,7 @@ RUN pnpm install --frozen-lockfile
 # Copy source code
 COPY . .
 # Build the application
-RUN npm run build
+RUN pnpm build
 
 # Production stage
 FROM node:20.18-alpine
