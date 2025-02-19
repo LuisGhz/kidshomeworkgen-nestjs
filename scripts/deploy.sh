@@ -2,7 +2,7 @@
 # filepath: /c:/Users/Luisghtz/dev/nestjs/kidshomeworkgen/scripts/deploy.sh
 
 if [ -z "$DOCKERHUB_USER" ]; then
-    echo "Error: DOCKERHUB_USER environment variable is not set"
+    echo "Error: DOCKERHUB_USER environment variable is not set: $DOCKERHUB_USER"
     exit 1
 fi
 if [ -z "$DOCKERHUB_TOKEN" ]; then
