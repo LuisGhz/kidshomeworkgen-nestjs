@@ -24,7 +24,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/kidshomeworkgen-nest:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/personalwebapss:kidshomeworkgen-nest:latest
 
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
