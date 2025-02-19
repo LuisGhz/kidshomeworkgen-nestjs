@@ -15,6 +15,7 @@ RUN npm run build
 
 # Production stage
 FROM node:20.18-alpine
+ENV NODE_ENV=production
 WORKDIR /app
 # Copy package files
 COPY package*.json ./
