@@ -15,8 +15,8 @@ if [ -z "$OPENAI_API_KEY" ]; then
 fi
 IMAGE_NAME="luisghtz/personalwebapss:kidshomeworkgen-nest"
 CONTAINER_NAME="kidshomeworkgen-nest"
-PORT=3000
-
+LOCALPORT=3000
+DOCKERPORT=3000
 # Login to Docker Hub using the access token from the OS environment variable
 echo "$DOCKERHUB_TOKEN" | docker login --username "$DOCKERHUB_USER" --password-stdin
 
@@ -40,4 +40,4 @@ docker pull ${IMAGE_NAME}
 
 # Run a new container with the specified flags
 echo "Running new container ${CONTAINER_NAME}..."
-docker run -d -e OPENAI_API_KEY=${OPENAI_API_KEY} -p ${PORT}:${PORT} --name ${CONTAINER_NAME} ${IMAGE_NAME}
+docker run -d -e OPENAI_API_KEY=${OPENAI_API_KEY} -p ${LOCALPORT}:${DOCKERPORT} --name ${CONTAINER_NAME} ${IMAGE_NAME}
