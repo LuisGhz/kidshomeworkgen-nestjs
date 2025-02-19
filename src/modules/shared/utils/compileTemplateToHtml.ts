@@ -5,9 +5,13 @@ import * as fs from 'fs';
 export const compileTemplateToHtml = <T>(templatePath: string, data?: T) => {
   // eslint-disable-next-line no-useless-catch
   try {
+    const isProduction = process.env.NODE_ENV === 'production';
+    const basePath = isProduction ? 'dist' : 'src';
+
     const templateFilePath = path.join(
       process.cwd(),
-      'src/modules',
+      basePath,
+      'modules',
       `${templatePath}.hbs`,
     );
     const fileData = fs.readFileSync(templateFilePath, 'utf8');
