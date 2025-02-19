@@ -33,5 +33,4 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          script: |
-            bash scripts/deploy.sh
+          script_path: scripts/deploy.sh
