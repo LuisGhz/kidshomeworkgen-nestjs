@@ -13,7 +13,7 @@ if [ -z "$OPENAI_API_KEY" ]; then
     echo "Error: DOCKERHUB_TOKEN environment variable is not set"
     exit 1
 fi
-IMAGE_NAME="luisghtz/personalwebapss:kidshomeworkgen-nest:latest"
+IMAGE_NAME="luisghtz/personalwebapss:kidshomeworkgen-nest"
 CONTAINER_NAME="kidshomeworkgen-nest"
 PORT=3000
 
