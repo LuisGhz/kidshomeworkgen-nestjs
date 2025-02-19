@@ -1,0 +1,8 @@
+/node_modules
+/dist
+/.cache
+/test
+.editorconfig
+.env
+.prettierrc
+README.md
