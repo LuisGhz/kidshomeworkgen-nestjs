@@ -1,7 +1,9 @@
 /node_modules
 /dist
 /.cache
+/.github
 /test
+/scripts
 .editorconfig
 .env
 .prettierrc
