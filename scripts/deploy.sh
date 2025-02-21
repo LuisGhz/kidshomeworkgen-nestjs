@@ -43,4 +43,4 @@ docker pull ${IMAGE_NAME}
 
 # Run a new container with the specified flags
 echo "Running new container ${CONTAINER_NAME}..."
-docker run -d -e OPENAI_API_KEY=${OPENAI_API_KEY} -e PDF_API_URI=${PDF_API_URI} -p ${LOCALPORT}:${DOCKERPORT} --name ${CONTAINER_NAME} ${IMAGE_NAME}
+docker run -d -e OPENAI_API_KEY=${OPENAI_API_KEY} -e PDF_API_URI=${PDF_API_URI} -p ${LOCALPORT}:${DOCKERPORT} --network pdfgen --name ${CONTAINER_NAME} ${IMAGE_NAME}
