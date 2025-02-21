@@ -31,6 +31,7 @@ jobs:
         uses: appleboy/ssh-action@v1.2.1
         env:
           DOCKERHUB_USER: ${{ vars.DOCKERHUB_USERNAME }}
+          PDF_API_URI: ${{ vars.PDF_API_URI }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         with:
@@ -38,5 +39,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          envs: DOCKERHUB_USER,DOCKERHUB_TOKEN,OPENAI_API_KEY
+          envs: DOCKERHUB_USER,DOCKERHUB_TOKEN,OPENAI_API_KEY,PDF_API_URI
           script_path: scripts/deploy.sh

@@ -12,6 +12,10 @@ if [ -z "$OPENAI_API_KEY" ]; then
     echo "Error: OPENAI_API_KEY environment variable is not set"
     exit 1
 fi
+if [ -z "$PDF_API_URI" ]; then
+    echo "Error: PDF_API_URI environment variable is not set"
+    exit 1
+fi
 IMAGE_NAME="luisghtz/personalwebapss:kidshomeworkgen-nest"
 CONTAINER_NAME="kidshomeworkgen-nest"
 LOCALPORT=3000
@@ -39,4 +43,4 @@ docker pull ${IMAGE_NAME}
 
 # Run a new container with the specified flags
 echo "Running new container ${CONTAINER_NAME}..."
-docker run -d -e OPENAI_API_KEY=${OPENAI_API_KEY} -p ${LOCALPORT}:${DOCKERPORT} --name ${CONTAINER_NAME} ${IMAGE_NAME}
+docker run -d -e OPENAI_API_KEY=${OPENAI_API_KEY} -e PDF_API_URI=${PDF_API_URI} -p ${LOCALPORT}:${DOCKERPORT} --name ${CONTAINER_NAME} ${IMAGE_NAME}
