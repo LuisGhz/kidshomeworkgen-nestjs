@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Res } from '@nestjs/common';
+import { Controller, Get, Logger, Query, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { BasicMathsService } from '../services/basic-maths.service';
 import { PdfService } from 'src/modules/shared/services/pdf.service';
@@ -15,6 +15,8 @@ import {
 
 @Controller('api/basic-maths')
 export class BasicMathsController {
+  private readonly logger = new Logger(BasicMathsController.name);
+
   constructor(
     private readonly basicMathsService: BasicMathsService,
     private readonly pdfService: PdfService,
@@ -77,6 +79,7 @@ export class BasicMathsController {
       __dirname,
       templatePath,
     );
+    this.logger.log('Before sending response');
     resPdf({ res, pdf, fileName: 'Additions' });
   }
 

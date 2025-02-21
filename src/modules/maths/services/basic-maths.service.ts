@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { OpenAIService } from 'src/modules/openai/services/openai.service';
 import { AdditionsResponse } from '../models/basic-maths/additions-response.model';
 import { AdditionsRequestBuilder } from '../utils/builders/additions-request-builder.util';
@@ -15,6 +15,7 @@ import { MultiplicationsResponse } from '../models/basic-maths/multiplications-r
 
 @Injectable()
 export class BasicMathsService {
+  private readonly logger = new Logger(BasicMathsService.name);
   constructor(private readonly openAiService: OpenAIService) {}
 
   async additions(generateAdditionsDto: GenerateAdditionsDto) {
@@ -26,10 +27,11 @@ export class BasicMathsService {
       messages,
       schema,
     );
+    this.logger.log(response.choices[0].message.content);
     const additions = JSON.parse(
       response.choices[0].message.content!,
     ) as AdditionsResponse;
-
+    this.logger.log(additions);
     return additions;
   }
 
