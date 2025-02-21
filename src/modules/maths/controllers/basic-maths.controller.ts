@@ -6,26 +6,77 @@ import { GenerateAdditionsDto } from '../dtos/basic-maths/generate-additions.dto
 import { GenerateSubstractionsDto } from '../dtos/basic-maths/generate-substractions.dto';
 import { GenerateMultiplicationsDto } from '../dtos/basic-maths/generate-multiplications.dto';
 import { GenerateDivisionsDto } from '../dtos/basic-maths/generate-divisions.dto';
-import { compileTemplateToHtml } from 'src/modules/shared/utils/compileTemplateToHtml';
-import { generatePDFFromHTML } from 'src/modules/shared/utils/generatePDFFromHTML';
 import { resPdf } from 'src/modules/shared/utils/resPdf.util';
+import { PdfHttpService } from 'src/modules/shared/services/pdf-http.service';
+import {
+  createFormData,
+  loadTemplate,
+} from 'src/modules/shared/utils/pdf-request.util';
 
 @Controller('api/basic-maths')
 export class BasicMathsController {
   constructor(
     private readonly basicMathsService: BasicMathsService,
     private readonly pdfService: PdfService,
+    private readonly pdfHttpService: PdfHttpService,
   ) {}
+
+  @Get('additions-axios')
+  async getAdditionsAxios(@Res() res: Response) {
+    const template = loadTemplate(
+      __dirname,
+      '../hbs/basic-maths/additions.hbs',
+    );
+    const data = {
+      additions: [
+        {
+          firstAddend: 1,
+          secondAddend: 2,
+        },
+        {
+          firstAddend: 1,
+          secondAddend: 2,
+        },
+        {
+          firstAddend: 1,
+          secondAddend: 2,
+        },
+        {
+          firstAddend: 1,
+          secondAddend: 2,
+        },
+        {
+          firstAddend: 1,
+          secondAddend: 2,
+        },
+        {
+          firstAddend: 1,
+          secondAddend: 2,
+        },
+        {
+          firstAddend: 1,
+          secondAddend: 2,
+        },
+      ],
+    };
+    const { form, headers } = createFormData(template, data);
+    const pdf = await this.pdfHttpService.post(form, headers);
+    resPdf({ res, pdf, fileName: 'Additions' });
+  }
 
   @Get('additions')
   async getAdditions(
     @Query() generateAdditionsDto: GenerateAdditionsDto,
     @Res() res: Response,
   ) {
-    const templatePath = '/maths/hbs/basic-maths/additions';
+    const templatePath = '../hbs/basic-maths/additions.hbs';
     const response =
       await this.basicMathsService.additions(generateAdditionsDto);
-    const pdf = await this.pdfService.generatePdf(response, templatePath);
+    const pdf = await this.pdfService.generatePdf(
+      response,
+      __dirname,
+      templatePath,
+    );
     resPdf({ res, pdf, fileName: 'Additions' });
   }
 
@@ -34,11 +85,15 @@ export class BasicMathsController {
     @Query() generateSubstractionsDto: GenerateSubstractionsDto,
     @Res() res: Response,
   ) {
-    const templatePath = '/maths/hbs/basic-maths/substractions';
+    const templatePath = '../hbs/basic-maths/substractions.hbs';
     const response = await this.basicMathsService.substractions(
       generateSubstractionsDto,
     );
-    const pdf = await this.pdfService.generatePdf(response, templatePath);
+    const pdf = await this.pdfService.generatePdf(
+      response,
+      __dirname,
+      templatePath,
+    );
     resPdf({ res, pdf, fileName: 'Substractions' });
   }
 
@@ -47,11 +102,15 @@ export class BasicMathsController {
     @Query() generateMultiplicationsDto: GenerateMultiplicationsDto,
     @Res() res: Response,
   ) {
-    const templatePath = '/maths/hbs/basic-maths/multiplications';
+    const templatePath = '../hbs/basic-maths/multiplications.hbs';
     const response = await this.basicMathsService.multiplications(
       generateMultiplicationsDto,
     );
-    const pdf = await this.pdfService.generatePdf(response, templatePath);
+    const pdf = await this.pdfService.generatePdf(
+      response,
+      __dirname,
+      templatePath,
+    );
     resPdf({ res, pdf, fileName: 'Multiplications' });
   }
 
@@ -60,20 +119,14 @@ export class BasicMathsController {
     @Query() generateDivitionsDto: GenerateDivisionsDto,
     @Res() res: Response,
   ) {
-    const templatePath = '/maths/hbs/basic-maths/divisions';
+    const templatePath = '../hbs/basic-maths/divisions.hbs';
     const response =
       await this.basicMathsService.divisions(generateDivitionsDto);
-    const pdf = await this.pdfService.generatePdf(response, templatePath);
+    const pdf = await this.pdfService.generatePdf(
+      response,
+      __dirname,
+      templatePath,
+    );
     resPdf({ res, pdf, fileName: 'Divisions' });
-  }
-
-  @Get('test-template')
-  async getTemp(@Res() res: Response) {
-    const html = compileTemplateToHtml('/maths/hbs/basic-maths/temp');
-    const pdf = await generatePDFFromHTML(html);
-    res.setHeader('Content-Type', 'application/pdf');
-    // res.setHeader('Content-Disposition', 'attachment; filename=maths.pdf');
-    res.setHeader('Content-Length', pdf.length);
-    res.send(Buffer.from(pdf));
   }
 }

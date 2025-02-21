@@ -19,11 +19,15 @@ export class FractionsController {
     @Query() generateFrAdditionsDto: GenerateFrAdditionsDto,
     @Res() res: Response,
   ) {
-    const templatePath = '/maths/hbs/fractions/fr-additions';
+    const templatePath = '../hbs/fractions/fr-additions.hbs';
     const response = await this.fractionsService.additions(
       generateFrAdditionsDto,
     );
-    const pdf = await this.pdfService.generatePdf(response, templatePath);
+    const pdf = await this.pdfService.generatePdf(
+      response,
+      __dirname,
+      templatePath,
+    );
     resPdf({ res, pdf, fileName: 'Fr-additions' });
   }
 
@@ -32,11 +36,15 @@ export class FractionsController {
     @Query() generateFrSubstractionsDto: GenerateFrSubstractionsDto,
     @Res() res: Response,
   ) {
-    const templatePath = '/maths/hbs/fractions/fr-substractions';
+    const templatePath = '../hbs/fractions/fr-substractions.hbs';
     const response = await this.fractionsService.substractions(
       generateFrSubstractionsDto,
     );
-    const pdf = await this.pdfService.generatePdf(response, templatePath);
+    const pdf = await this.pdfService.generatePdf(
+      response,
+      __dirname,
+      templatePath,
+    );
     resPdf({ res, pdf, fileName: 'Fr-substractions' });
   }
 
@@ -45,11 +53,15 @@ export class FractionsController {
     @Query() generateFrSubstractionsDto: GenerateFrMultiplicationsDto,
     @Res() res: Response,
   ) {
-    const templatePath = '/maths/hbs/fractions/fr-multiplications';
+    const templatePath = '../hbs/fractions/fr-multiplications.hbs';
     const response = await this.fractionsService.multiplications(
       generateFrSubstractionsDto,
     );
-    const pdf = await this.pdfService.generatePdf(response, templatePath);
+    const pdf = await this.pdfService.generatePdf(
+      response,
+      __dirname,
+      templatePath,
+    );
     resPdf({ res, pdf, fileName: 'Fr-multiplications' });
   }
 }
