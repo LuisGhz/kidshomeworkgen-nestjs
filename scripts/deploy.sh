@@ -9,7 +9,7 @@ if [ -z "$DOCKERHUB_TOKEN" ]; then
     exit 1
 fi
 if [ -z "$OPENAI_API_KEY" ]; then
-    echo "Error: DOCKERHUB_TOKEN environment variable is not set"
+    echo "Error: OPENAI_API_KEY environment variable is not set"
     exit 1
 fi
 IMAGE_NAME="luisghtz/personalwebapss:kidshomeworkgen-nest"
