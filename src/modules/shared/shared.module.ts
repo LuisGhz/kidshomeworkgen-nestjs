@@ -1,11 +1,13 @@
 import { Global, Module } from '@nestjs/common';
 import { PdfService } from './services/pdf.service';
+import { HttpModule } from '@nestjs/axios';
+import { PdfHttpService } from './services/pdf-http.service';
 
 @Global()
 @Module({
-  imports: [],
+  imports: [HttpModule],
   controllers: [],
-  providers: [PdfService],
-  exports: [PdfService],
+  providers: [PdfService, PdfHttpService],
+  exports: [PdfService, PdfHttpService],
 })
 export class SharedModule {}
