@@ -32,6 +32,7 @@ jobs:
         env:
           DOCKERHUB_USER: ${{ vars.DOCKERHUB_USERNAME }}
           PDF_API_URI: ${{ vars.PDF_API_URI }}
+          ORIGIN: ${{ vars.ORIGIN }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         with:
@@ -39,5 +40,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          envs: DOCKERHUB_USER,DOCKERHUB_TOKEN,OPENAI_API_KEY,PDF_API_URI
+          envs: DOCKERHUB_USER,PDF_API_URI,ORIGIN,DOCKERHUB_TOKEN,OPENAI_API_KEY
           script_path: scripts/deploy.sh
