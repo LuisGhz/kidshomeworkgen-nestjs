@@ -26,6 +26,8 @@ export class AdditionsRequestBuilder {
         * El primer sumando debe de tener ${generateAdditionsDto.firstAddendDigits} digitos.
         * El segundo sumando debe de tener ${generateAdditionsDto.secondAddendDigits} digitos.
         * Si el primer sumando y el segundo sumando tienen la misma cantidad de digitos, el primer sumando debe de ser mayor al segundo sumando.
+        * Los sumandos no deben contener 0, por ejemplo: 6050 esta mal pero 6151 esta bien.
+        * No se deben repetir muchas veces el mismo numero en los sumandos, por ejemplo: 888888 o 999999 estan mal, 44414 o 559000 estan mal.
         * ${
           generateAdditionsDto.includeDecimals
             ? 'Los sumandos deben incluir decimales de dos digitos.'
