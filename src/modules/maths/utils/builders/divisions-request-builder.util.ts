@@ -27,6 +27,13 @@ export class DivitionsRequestBuilder {
         * No se deben repetir muchas veces el mismo numero en el dividendo o el divisor, por ejemplo: 888888 o 999999 estan mal, 44414 o 559000 estan mal.
         * Si el dividendo y el divisor tienen la misma cantidad de digitos, el dividendo debe de ser mayor al divisor.
         * Las divisiones ${generateDivisionsDto.canHaveRemainder ? 'deben' : 'no deben'} tener residuo.
+        * Todas y cada una de las multiplicaciones deben ser únicas.
+        * Las operaciones no deben ir con consecutivos, por ejemplo:
+            12345 / 112, 54321 / 113.
+            El "12345" esta mal porque ningún numero debe ser consecutivo, el "112" y "113" están mal porque las diferentes operaciones no deben ser consecutivos de otras.
+        * Las diferentes opecaciones no deben ser muy parecidas, por ejemplo:
+            49123 / 221, 34197 / 121, 84719 / 331,
+            Los tres divisores son parecidos ya que los tres terminan con 1 y se generaron uno justo despues del otro.
         `,
       },
     ];
