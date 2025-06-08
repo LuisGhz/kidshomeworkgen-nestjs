@@ -24,9 +24,16 @@ export class MultiplicationsRequestBuilder {
         * El multiplicando debe de tener ${generateAdditionsDto.multiplicandDitis} digitos.
         * El multiplicador debe de tener ${generateAdditionsDto.multiplierDigits} digitos.
         * Las operaciones no deben contener decimales.
-        * El multiplicando y el multiplicador no deben contener 0, por ejemplo: 6050 esta mal pero 6151 esta bien.
-        * No se deben repetir muchas veces el mismo numero en el multiplicando o el multiplicador, por ejemplo: 888888 o 999999 estan mal, 44414 o 559000 estan mal.
+        * Ni el multiplicando o el multiplicador no deben contener 0, por ejemplo: 6050 esta mal pero 6151 esta bien.
+        * No se debe repetir más de dos veces el mismo numero en el multiplicando o el multiplicador, por ejemplo: 888888 o 999999 estan mal, 4414 o 55911 estan mal.
         * Si el multiplicando y el multiplicador tienen la misma cantidad de digitos, el multiplicando debe de ser mayor al multiplicador.
+        * Todas y cada una de las multiplicaciones deben ser únicas.
+        * Las operaciones no deben ir con consecutivos, por ejemplo:
+            12345 X 112, 54321 X 113.
+            El "12345" esta mal porque ningún numero debe ser consecutivo, el "112" y "113" están mal porque las diferentes operaciones no deben ser consecutivos de otras.
+        * Las diferentes opecaciones no deben ser muy parecidas, por ejemplo:
+            49123 X 221, 34197 X 121, 84719 X 331,
+            Los tres multiplicados son parecidos ya que los tres terminan con 1 y se generaron uno justo despues del otro.
         `,
       },
     ];
