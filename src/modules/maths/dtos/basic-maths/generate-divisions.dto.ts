@@ -20,7 +20,8 @@ export class GenerateDivisionsDto {
   dividendDigits: number;
   @IsNotEmpty()
   @Transform(({ value }) => parseInt(value))
-  @Min(3)
+  @Min(1)
+  @Max(3)
   divisorDigits: number;
   @IsNotEmpty()
   @Transform(({ value }) => value === 'true')
