@@ -8,6 +8,7 @@ import { FrSubstractionsRequestBuilder } from '../utils/builders/fractions/fr-su
 import { FrSubstractionsResponse } from '../models/fractions/fr-substractions-response.model';
 import { GenerateFrMultiplicationsDto } from '../dtos/fractions/generate-fr-multiplications.dto';
 import { FrMultiplicationsRequestBuilder } from '../utils/builders/fractions/fr-multiplications-request.builder';
+import { FrMultiplicationResponse } from '../models/fractions/fr-multiplication-response.model';
 
 @Injectable()
 export class FractionsService {
@@ -18,13 +19,12 @@ export class FractionsService {
       generateFrAdditionsDto,
     );
     const schema = FrAdditionsRequestBuilder.buildSchema();
-    const response = await this.openAiService.createCompletionWithJsonSchema(
-      meesage,
-      schema,
-    );
-    const frAdditions = JSON.parse(
-      response.choices[0].message.content!,
-    ) as FrAdditionResponse;
+    const response =
+      await this.openAiService.createCompletionWithJsonSchema<FrAdditionResponse>(
+        meesage,
+        schema,
+      );
+    const frAdditions = response.choices[0].message.parsed!;
     return frAdditions;
   }
 
@@ -33,13 +33,12 @@ export class FractionsService {
       generateFrSubstractionsDto,
     );
     const schema = FrSubstractionsRequestBuilder.buildSchema();
-    const response = await this.openAiService.createCompletionWithJsonSchema(
-      meesage,
-      schema,
-    );
-    const frAdditions = JSON.parse(
-      response.choices[0].message.content!,
-    ) as FrSubstractionsResponse;
+    const response =
+      await this.openAiService.createCompletionWithJsonSchema<FrSubstractionsResponse>(
+        meesage,
+        schema,
+      );
+    const frAdditions = response.choices[0].message.parsed!;
     return frAdditions;
   }
 
@@ -50,13 +49,12 @@ export class FractionsService {
       generateFrSubstractionsDto,
     );
     const schema = FrMultiplicationsRequestBuilder.buildSchema();
-    const response = await this.openAiService.createCompletionWithJsonSchema(
-      meesage,
-      schema,
-    );
-    const frAdditions = JSON.parse(
-      response.choices[0].message.content!,
-    ) as FrSubstractionsResponse;
+    const response =
+      await this.openAiService.createCompletionWithJsonSchema<FrMultiplicationResponse>(
+        meesage,
+        schema,
+      );
+    const frAdditions = response.choices[0].message.parsed!;
     return frAdditions;
   }
 }
