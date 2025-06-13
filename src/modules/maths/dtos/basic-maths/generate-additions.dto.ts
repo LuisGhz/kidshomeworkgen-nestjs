@@ -7,7 +7,7 @@ export class GenerateAdditionsDto {
   @IsNotEmpty()
   @Transform(({ value }) => parseInt(value))
   @Min(1)
-  @Max(4)
+  @Max(2)
   pages: number;
   @IsNotEmpty()
   @Transform(({ value }) => parseInt(value))
