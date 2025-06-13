@@ -1,5 +1,5 @@
 import { Transform } from 'class-transformer';
-import { IsBoolean, IsIn, IsInt, IsNotEmpty, Min } from 'class-validator';
+import { IsBoolean, IsIn, IsInt, IsNotEmpty, Max, Min } from 'class-validator';
 
 export class GenerateFrAdditionsDto {
   @IsNotEmpty()
@@ -7,6 +7,7 @@ export class GenerateFrAdditionsDto {
   @Transform(({ value }) => parseInt(value))
   @IsInt()
   @Min(1)
+  @Max(2)
   pages: number;
   @IsNotEmpty()
   @Transform(({ value }) => value === 'true')
