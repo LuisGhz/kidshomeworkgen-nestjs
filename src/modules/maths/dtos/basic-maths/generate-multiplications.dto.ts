@@ -17,7 +17,7 @@ export class GenerateMultiplicationsDto {
     message:
       'first addend digits must be greater than or equal to second addend digits.',
   })
-  multiplicandDitis: number;
+  multiplicandDigits: number;
   @IsNotEmpty()
   @Transform(({ value }) => parseInt(value))
   @Min(1)

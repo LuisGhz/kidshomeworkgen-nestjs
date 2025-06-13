@@ -21,7 +21,7 @@ export class MultiplicationsRequestBuilder {
         content: `
         Devuelve ${quantity} operaciones de multiplicaciones las cuales deben de cumplir con todos y cada uno de los siguientes criterios:
         * Todos los numeros deben ser numeros enteros positivos.
-        * El multiplicando debe de tener ${generateAdditionsDto.multiplicandDitis} digitos.
+        * El multiplicando debe de tener ${generateAdditionsDto.multiplicandDigits} digitos.
         * El multiplicador debe de tener ${generateAdditionsDto.multiplierDigits} digitos.
         * Las operaciones no deben contener decimales.
         * Ni el multiplicando o el multiplicador no deben contener 0, por ejemplo: 6050 esta mal pero 6151 esta bien.
