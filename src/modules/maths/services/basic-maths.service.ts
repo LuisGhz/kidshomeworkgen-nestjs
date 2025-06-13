@@ -23,15 +23,13 @@ export class BasicMathsService {
       AdditionsRequestBuilder.buildMessages(generateAdditionsDto);
     const schema = AdditionsRequestBuilder.buildSchema();
 
-    const response = await this.openAiService.createCompletionWithJsonSchema(
-      messages,
-      schema,
-    );
-    this.logger.log(response.choices[0].message.content);
-    const additions = JSON.parse(
-      response.choices[0].message.content!,
-    ) as AdditionsResponse;
-    this.logger.log(additions);
+    const response =
+      await this.openAiService.createCompletionWithJsonSchema<AdditionsResponse>(
+        messages,
+        schema,
+      );
+
+    const additions = response.choices[0].message.parsed!;
     return additions;
   }
 
@@ -41,13 +39,12 @@ export class BasicMathsService {
     );
     const schema = SubstractionsRequestBuilder.buildSchema();
 
-    const response = await this.openAiService.createCompletionWithJsonSchema(
-      messages,
-      schema,
-    );
-    const additions = JSON.parse(
-      response.choices[0].message.content!,
-    ) as SubstractionsResponse;
+    const response =
+      await this.openAiService.createCompletionWithJsonSchema<SubstractionsResponse>(
+        messages,
+        schema,
+      );
+    const additions = response.choices[0].message.parsed!;
 
     return additions;
   }
@@ -60,13 +57,12 @@ export class BasicMathsService {
     );
     const schema = MultiplicationsRequestBuilder.buildSchema();
 
-    const response = await this.openAiService.createCompletionWithJsonSchema(
-      messages,
-      schema,
-    );
-    const additions = JSON.parse(
-      response.choices[0].message.content!,
-    ) as MultiplicationsResponse;
+    const response =
+      await this.openAiService.createCompletionWithJsonSchema<MultiplicationsResponse>(
+        messages,
+        schema,
+      );
+    const additions = response.choices[0].message.parsed!;
 
     return additions;
   }
@@ -76,13 +72,12 @@ export class BasicMathsService {
       DivitionsRequestBuilder.buildMessages(generateDivitionsDto);
     const schema = DivitionsRequestBuilder.buildSchema();
 
-    const response = await this.openAiService.createCompletionWithJsonSchema(
-      messages,
-      schema,
-    );
-    const divisions = JSON.parse(
-      response.choices[0].message.content!,
-    ) as DivisionsResponse;
+    const response =
+      await this.openAiService.createCompletionWithJsonSchema<DivisionsResponse>(
+        messages,
+        schema,
+      );
+    const divisions = response.choices[0].message.parsed!;
 
     return divisions;
   }
