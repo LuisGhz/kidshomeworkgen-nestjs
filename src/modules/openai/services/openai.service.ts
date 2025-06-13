@@ -5,6 +5,7 @@ import {
   ChatModel,
   ResponseFormatJSONSchema,
 } from 'openai/resources';
+import { ChatCompletionParseParams } from 'openai/resources/chat/completions';
 
 type AllowedChatModels = Extract<ChatModel, 'gpt-4o' | 'gpt-4o-mini'>;
 
@@ -23,12 +24,15 @@ export class OpenAIService {
     return schema;
   }
 
-  async createCompletionWithJsonSchema(
-    messages: ChatCompletionMessageParam[],
+  async createCompletionWithJsonSchema<R = any>(
+    messages: Array<ChatCompletionMessageParam>,
     json_schema: ResponseFormatJSONSchema.JSONSchema,
     model: AllowedChatModels = 'gpt-4o',
   ) {
-    return await this.client.chat.completions.create({
+    return await this.client.chat.completions.parse<
+      ChatCompletionParseParams,
+      R
+    >({
       model,
       messages,
       response_format: {
