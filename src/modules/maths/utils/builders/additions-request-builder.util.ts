@@ -33,6 +33,9 @@ export class AdditionsRequestBuilder {
             ? 'Los sumandos deben incluir decimales de dos digitos.'
             : 'Los sumandos no deben incluir decimales.'
         }
+        * Las operaciones no deben ir con consecutivos, por ejemplo:
+            12345 + 112, 54321 + 113.
+            El "12345" esta mal porque ningún numero debe ser consecutivo, el "112" y "113" están mal porque las diferentes operaciones no deben ser consecutivos de otras.
         `,
       },
     ];

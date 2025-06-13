@@ -27,6 +27,9 @@ export class SubstractionsRequestBuilder {
         * El minuendo y el sustraendo no deben contener 0, por ejemplo: 6050 esta mal pero 6151 esta bien.
         * No se deben repetir muchas veces el mismo numero en el minuendo o el sustraendo, por ejemplo: 888888 o 999999 estan mal, 44414 o 559000 estan mal.
         * Si el minuendo y el sustraendo tienen la misma cantidad de digitos, el minuendo debe de ser mayor al sustraendo.
+        * * Las operaciones no deben ir con consecutivos, por ejemplo:
+            12345 - 112, 54321 - 113.
+            El "12345" esta mal porque ningún numero debe ser consecutivo, el "112" y "113" están mal porque las diferentes operaciones no deben ser consecutivos de otras.
         `,
       },
     ];
